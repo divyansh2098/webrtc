@@ -1,0 +1,65 @@
+body {
+    margin: unset;
+    font-family: 'Roboto', sans-serif;
+}
+
+.homePage {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #09c6f9;
+    background-image: linear-gradient(315deg, #09c6f9 0%, #045de9 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homePage .container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    color: white;
+}
+
+.homePage .container h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+    font-weight: 300;
+    text-shadow: 1px 1px 8px #ffffff;
+}
+
+.container .ctaContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.homePage .logo {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.homePage .createRoom {
+    padding: 12px 36px;
+    font-size: 24px;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    background-color: #ff4e00;
+    background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    cursor: pointer;
+}
+
+.homePage .joinRoom {
+    padding: 12px 36px;
+    font-size: 24px;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    cursor: pointer;
+}

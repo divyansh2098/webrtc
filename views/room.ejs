@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">    
-    <title>WebRTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Room</title>
 </head>
 <body>
-    <div id="home-mount"></div>
+    <div id="room-react"></div>
 </body>
 <script>
-    window.mountHome = document.getElementById("home-mount")
+    window.mountRoom = document.getElementById("room-react")
+    window.ROOM_ID = "<%= roomId %>"
 </script>
-<script src="js/Home.js"></script>
+<script src="../js/Room.js"></script>
 </html>

@@ -37,11 +37,9 @@ server.listen(port, () => {
 io.on("connection", socket => {
     socket.on('join-room', (roomId) => {
         socket.join(roomId)
-        
         socket.to(roomId).emit("new-member", socket.id)
         
         socket.on("new-ice-candidate", (candidate) => {
-            const id = socket.id
             socket.to(roomId).emit("new-ice-candidate", socket.id, candidate)
         })
 
@@ -51,6 +49,12 @@ io.on("connection", socket => {
 
         socket.on("answer", (id, answer) => {
             socket.to(id).emit("answer", socket.id, answer)
+        })
+
+        socket.on("disconnecting", () => {
+            for(let room of socket.rooms) {
+                socket.to(room).emit("leaveCall", socket.id)
+            }
         })
     })  
 })

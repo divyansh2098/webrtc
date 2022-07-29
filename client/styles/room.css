@@ -1,0 +1,79 @@
+body {
+    margin: unset;
+    font-family: 'Roboto Mono', sans-serif;
+}
+
+.roomContainer {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column;
+    align-items: center;
+}
+
+.roomContainer .info {
+    color: white;
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.roomContainer .videoContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    column-gap: 16px;
+    row-gap: 16px;
+    margin-top: 24px;
+}
+
+.roomContainer .ctaContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 16px;
+    background: white;
+}
+
+.ctaContainer .endCall {
+    padding: 6px;
+    height: 36px;
+    background: white;
+    border: 0.5px solid rgba(0,0,0,0.27);
+    border-radius: 50%;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 37%);
+    cursor: pointer;
+}
+
+.roomContainer .videoContainer > video {
+    border-radius: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+.roomContainer .copyRoomId {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    font-weight: 500;
+    margin-top: 24px;
+    line-height: 32px;
+    align-items: center;
+    padding: 16px;
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.roomContainer .thankYou {
+    
+}
+
+.copyRoomId .copyIcon {
+    margin-left: 8px;
+}

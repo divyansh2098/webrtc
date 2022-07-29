@@ -1,13 +1,13 @@
 body {
     margin: unset;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', sans-serif;
 }
 
 .roomContainer {
     min-height: 100vh;
     width: 100vw;
-    background-color: #09c6f9;
-    background-image: linear-gradient(315deg, #09c6f9 0%, #045de9 74%);
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
     display: flex;
     justify-content: flex-start;
     flex-flow: column;

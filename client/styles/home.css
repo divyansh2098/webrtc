@@ -1,29 +1,42 @@
 body {
     margin: unset;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .homePage {
     min-height: 100vh;
-    min-width: 100vw;
-    background-color: #09c6f9;
-    background-image: linear-gradient(315deg, #09c6f9 0%, #045de9 74%);
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 0px 5%;
     align-items: center;
+}
+
+.homePage .homeLogo {
+    margin-left: auto;
+    width: 40%;
+    padding: 12px;
 }
 
 .homePage .container {
     width: 40%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-flow: column;
     color: white;
 }
 
+.container .descriptionHolder {
+    font-size: 24px;
+}
+
+.descriptionHolder .highlight {
+    text-shadow: 1px 1px 8px white;
+}
+
 .homePage .container h1 {
-    font-size: 36px;
+    font-size: 58px;
     margin-bottom: 24px;
     font-weight: 300;
     text-shadow: 1px 1px 8px #ffffff;
@@ -31,8 +44,31 @@ body {
 
 .container .ctaContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
+    margin-bottom: 32px;
+}
+
+.ctaContainer .inputContainer {
+    padding: 12px;
+    border-radius: 8px;
+    background: white;
+}
+
+.inputContainer .input {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+}
+
+.inputContainer .input:focus {
+    outline: none;
+}
+
+.ctaContainer .closeIcon {
+    margin-left: 8px;
+    cursor: pointer;
 }
 
 .homePage .logo {
@@ -43,12 +79,13 @@ body {
 .homePage .createRoom {
     padding: 12px 36px;
     font-size: 24px;
+    margin-right: 12px;
     color: white;
     border-radius: 6px;
     border: none;
     background-color: #ff4e00;
     background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
     cursor: pointer;
 }
 

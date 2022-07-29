@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client'
 class RTConnection {
     constructor() {
-        this.config = {
+    this.config = {
             iceServers: [
                 {
                     urls: ["stun:stun.l.google.com:19302"]
@@ -20,7 +20,10 @@ class RTConnection {
         this.myVideo = video
         video.onloadedmetadata = e => video.play()
         this.videoElemRef.appendChild(video)
-        const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        const stream = await navigator.mediaDevices.getUserMedia({video: {
+            height: 720,
+            width: 1280
+        }, audio: false})
         video.srcObject = stream
         this.socket = io()
         
@@ -54,6 +57,7 @@ class RTConnection {
         const stream = this.videoElements[id].srcObject
         stream.getTracks().forEach(track => track.stop())
         this.videoElemRef.removeChild(this.videoElements[id])
+        delete this.videoElements[id]
     }
 
     acceptAnswer = async (id, answer) => {
@@ -107,7 +111,7 @@ class RTConnection {
     }
 
     acceptOffer = async (id, offer) => {
-        const peerConnection = new RTCPeerConnection()
+        const peerConnection = new RTCPeerConnection(this.config)
         this.connections[id] = peerConnection
         peerConnection.onicecandidate = e => {
             this.socket.emit("new-ice-candidate", e.candidate)
@@ -158,7 +162,7 @@ class RTConnection {
     }
 
     createOffer = async (id) => {
-        const peerConnection = new RTCPeerConnection()
+        const peerConnection = new RTCPeerConnection(this.config)
         this.connections[id] = peerConnection
         peerConnection.ontrack = (e) => {
             console.log("Received a track");
@@ -176,7 +180,6 @@ class RTConnection {
         }
         peerConnection.dc = peerConnection.createDataChannel("channel")
         peerConnection.dc.onopen = e => {
-
             console.log("Connected!!!")
         }
         const stream = this.myVideo.srcObject
@@ -199,13 +202,14 @@ class RTConnection {
         stream.getTracks().forEach(track => {
             track.stop()
         })
+        console.log(elem)
+        console.log(this.videoElemRef)
         this.videoElemRef.removeChild(elem)
     }
 
     cleanMedia = () => {
         this.stopStream(this.myVideo.srcObject, this.myVideo)
         for(let id in this.videoElements) {
-            console.log(this.videoElements[id])
             this.stopStream(this.videoElements[id].srcObject, this.videoElements[id])
             delete this.videoElements[id]
         }

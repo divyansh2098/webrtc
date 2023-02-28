@@ -1,13 +1,7 @@
 const express = require('express')
-const fs = require('fs')
 const app = express()
 const path = require('path')
 const v4 = require('uuid').v4
-
-const options = {
-    key: fs.readFileSync("key.pem"),
-    cert: fs.readFileSync("cert.pem")
-}
 
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)

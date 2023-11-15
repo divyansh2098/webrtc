@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client'
 class RTConnection {
     constructor() {
-    this.config = {
+        this.config = {
             iceServers: [
                 {
                     urls: ["stun:stun.l.google.com:19302"]
